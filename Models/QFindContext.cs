@@ -10,5 +10,7 @@ namespace Qfind.Models
 
         }
         public DbSet<Tickets> TicketsEntity { get; set; } = null!;
+
+        public DbSet<FeedBack> FeedBackEntity { get; set; }
     }
 }

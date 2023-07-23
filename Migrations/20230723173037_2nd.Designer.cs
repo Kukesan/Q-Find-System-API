@@ -11,8 +11,8 @@ using Qfind.Models;
 namespace Qfind.Migrations
 {
     [DbContext(typeof(QFindContext))]
-    [Migration("20230416071050_Initial")]
-    partial class Initial
+    [Migration("20230723173037_2nd")]
+    partial class _2nd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,6 +22,23 @@ namespace Qfind.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("Qfind.Models.FeedBack", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FeedBackEntity");
+                });
 
             modelBuilder.Entity("Qfind.Models.Tickets", b =>
                 {
